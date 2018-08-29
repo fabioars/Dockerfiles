@@ -48,7 +48,7 @@ RUN php -r "if (hash_file('SHA384', 'composer-setup.php') === '544e09ee996cdf60e
 RUN php composer-setup.php --install-dir=/usr/local/bin --filename=composer
 RUN php -r "unlink('composer-setup.php');"
 
-COPY ./.circleci/000-default.conf /etc/apache2/sites-available/000-default.conf
+COPY ./000-default.conf /etc/apache2/sites-available/000-default.conf
 RUN a2enmod rewrite
 
 WORKDIR /var/www/
